@@ -17,15 +17,15 @@
 
 = 查看二进制中文的表示方法 =
 
-方法1：
-如果是GB的也有其对应的二进制表示形式，你可以去查表。
+== 方法1 ==
+如果是Unicode或者GB的有其固定对应的二进制表示形式，你可以去查表。utf-8你可以自己转换，但是比较麻烦。转换的方法看这里（http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html）。
 
-方法2：
-另外一种简便方法，把对应编码的网页下载下来，然后用二进制形式查看其内容，可以看到对应汉字的二进制表示(vim中可以输入命令':%!xxd')。
+== 方法2 ==
+把对应编码的网页下载下来，然后用二进制形式查看其内容，可以看到对应汉字的二进制表示(vim中可以输入命令':%!xxd')。
 
 = 例子 =
 
 把‘你好’替换成‘aaabbb’
 <code>
-subs_filter '\xe4\xbd\xa0\xe5\xa5\xbd' ‘aaabbb’r;
+subs_filter '\xe4\xbd\xa0\xe5\xa5\xbd' 'aaabbb' r;
 </code>
