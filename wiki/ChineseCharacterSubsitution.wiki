@@ -1,0 +1,31 @@
+#labels Chinese,Character,Subsitution
+= 中文的特殊性 =
+
+中文匹配替换可以在本模块中进行，但是需要知道所匹配中文的编码方式及其最终的二进制表示形式。
+
+比如：
+
+“你好”的unicode表示为：
+<code>
+0x4f60 0x597d
+</code>
+
+而其utf-8的表示为：
+<code>
+0xe4bda0 0xe5a5bd
+</code>
+
+= 查看二进制中文的表示方法 =
+
+方法1：
+如果是GB的也有其对应的二进制表示形式，你可以去查表。
+
+方法2：
+另外一种简便方法，把对应编码的网页下载下来，然后用二进制形式查看其内容，可以看到对应汉字的二进制表示(vim中可以输入命令':%!xxd')。
+
+= 例子 =
+
+把‘你好’替换成‘aaabbb’
+<code>
+subs_filter '\xe4\xbd\xa0\xe5\xa5\xbd' ‘aaabbb’r;
+</code>
